@@ -1,0 +1,5 @@
+create view vue_categorie_sous_categorie as select 
+categorie.id_categorie,categorie.nom_categorie,
+sous_categorie.id_sous_categorie,sous_categorie.nom_sous_categorie
+from categorie,sous_categorie
+where sous_categorie.id_categorie = categorie.id_categorie;
