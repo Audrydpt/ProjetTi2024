@@ -5,7 +5,7 @@ require './src/php/utils/liste_includes.php';
 <!doctype html>
 <html lang="fr">
 <head>
-    <title>Demo 2023-2024</title>
+    <title></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./public/css/style.css" type="text/css">
@@ -18,8 +18,8 @@ require './src/php/utils/liste_includes.php';
 
     <nav id="menu">
         <?php
-        if (file_exists('./src/php/utils/menu_public.php')) {
-            include './src/php/utils/menu_public.php';
+        if (file_exists('./src/php/utils/menu_admin.php')) {
+            include './src/php/utils/menu_admin.php';
         }
         ?>
         <a href="index_.php?page=disconnect.php">Sortir</a>
@@ -41,7 +41,13 @@ require './src/php/utils/liste_includes.php';
         }
         ?>
     </div>
-    <footer id="footer">&nbsp;</footer>
+    <footer id="footer">
+        <?php
+        if (file_exists('./src/php/utils/footer.php')) {
+            include './src/php/utils/footer.php';
+        }
+        ?>
+    </footer>
 </div>
 </body>
 

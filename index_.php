@@ -5,11 +5,12 @@ require './admin/src/php/utils/liste_includes.php';
 <!doctype html>
 <html lang="fr">
 <head>
-    <title>Demo 2023-2024</title>
+    <title>ProjetTi</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./admin/public/css/style.css" type="text/css">
     <link rel="stylesheet" href="./admin/public/css/custom.css" type="text/css">
+    <script type="javascript" src="./admin/public/js/script.js"></script>
 </head>
 <body>
 <div class="container">
@@ -22,7 +23,10 @@ require './admin/src/php/utils/liste_includes.php';
             include './admin/src/php/utils/menu_public.php';
         }
         ?>
-        <a href="index_.php?page=login.php">Connexion</a>
+        <a href="index_.php?page=login.php">Connexion admin</a>
+        <a href="index_.php?page=connexion.php">Connexion client</a>
+
+
     </nav>
     <div id="contenu">
         <?php
@@ -40,8 +44,16 @@ require './admin/src/php/utils/liste_includes.php';
             include './pages/page404.php';
         }
         ?>
+
     </div>
-    <footer id="footer">&nbsp;</footer>
+
+    <footer id="footer">
+        <?php
+        if (file_exists('./admin/src/php/utils/footer.php')) {
+            include './admin/src/php/utils/footer.php';
+        }
+        ?>
+    </footer>
 </div>
 </body>
 
