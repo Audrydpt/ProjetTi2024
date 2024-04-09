@@ -9,7 +9,10 @@ if(isset($_POST['submit_register'])) {
 
     // Vérification de l'existence du client
     $client = $clientDB->getClientByEmail($emailRegister);
-    if($client){
+    if($client != null){
+        $clientDB->addClient($_POST);
+    }
+    /*
         // Affichage d'un message d'erreur si l'email existe déjà
         print "<br>Cet email est déjà utilisé<br>";
         return;
@@ -27,16 +30,18 @@ if(isset($_POST['submit_register'])) {
         $client = new Client($data);
 
         // Ajout du client à la base de données
-        $clientDB->addClient($client);
+
 
         // Création de variables de session pour le client
         $_SESSION['client'] = $client;
+
 
         // Redirection vers la page d'accueil du client connecté
         ?>
         <meta http-equiv="refresh" content="0;url=index_.php?page=accueilC.php">
         <?php
     }
+    */
 }
 ?>
 

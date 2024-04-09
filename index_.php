@@ -23,8 +23,7 @@ require './admin/src/php/utils/liste_includes.php';
             include './admin/src/php/utils/menu_public.php';
         }
         ?>
-        <a href="index_.php?page=login.php">Connexion admin</a>
-        <a href="index_.php?page=connexion.php">Connexion client</a>
+
 
 
     </nav>

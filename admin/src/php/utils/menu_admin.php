@@ -6,30 +6,26 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContentAdmin">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=accueil_admin.php">Accueil Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gérer Produits</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Ajouter Produit</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownProduits" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gérer Produits
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduits">
+                        <a class="dropdown-item" href="ajouter_produit.php">Ajouter Produit</a>
                         <li><a class="dropdown-item" href="#">Modifier Produit</a></li>
                         <li><a class="dropdown-item" href="#">Supprimer Produit</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Gérer Stock</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Ajouter Stock</a></li>
-                        <li><a class="dropdown-item" href="#">Modifier Stock</a></li>
-                        <li><a class="dropdown-item" href="#">Supprimer Stock</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdownStock" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gérer Stock
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownStock">
+                        <li><a class="dropdown-item" href="#">Augmenter</a></li>
+                        <li><a class="dropdown-item" href="#">Diminuer</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Rechercher</button>
-            </form>
         </div>
     </div>
 </nav>
