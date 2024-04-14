@@ -48,4 +48,3 @@ if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
     </div>
 </form>
 
-<script src="admin/public/js/fonctions.js"></script>
