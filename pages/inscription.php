@@ -3,8 +3,6 @@ require_once 'admin/src/php/classes/ClientDB.class.php';
 require_once 'admin/src/php/db/dbPgConnect.php';
 require_once 'admin/src/php/classes/Connexion.class.php';
 
-$cnx = Connexion::getInstance($dsn, $user, $password);
-
 $clientDB = new ClientDB($cnx);
 
 if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
