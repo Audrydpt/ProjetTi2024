@@ -7,6 +7,7 @@ require './src/php/utils/liste_includes.php';
 <head>
     <title></title>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./public/css/style.css" type="text/css">
     <link rel="stylesheet" href="./public/css/custom.css" type="text/css">

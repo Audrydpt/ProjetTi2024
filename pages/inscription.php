@@ -1,64 +1,27 @@
 <?php
-// Vérifier si le formulaire a été soumis
-if(isset($_POST['submit_register'])) {
-    // Extraction des données du formulaire
+require_once 'admin/src/php/classes/ClientDB.class.php';
+require_once 'admin/src/php/db/dbPgConnect.php';
+require_once 'admin/src/php/classes/Connexion.class.php';
+
+$cnx = Connexion::getInstance($dsn, $user, $password);
+
+$clientDB = new ClientDB($cnx);
+
+if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
     extract($_POST, EXTR_OVERWRITE);
 
-    // Création d'une instance de la classe ClientDB pour gérer les clients
-    $clientDB = new ClientDB($cnx);
-
-    // Vérification de l'existence du client
-    $client = $clientDB->getClientByEmail($emailRegister);
-    if($client != null){
+    // Le client n'existe pas, afficher le reste du formulaire
+    if (!empty($nom) && !empty($prenom) && !empty($telephone) && !empty($passwordRegister)) {
+        $code = uniqid();
         $clientDB->addClient($_POST);
+        header("Location: index_.php?page=connexion.php");
+        exit();
     }
-    /*
-        // Affichage d'un message d'erreur si l'email existe déjà
-        print "<br>Cet email est déjà utilisé<br>";
-        return;
-    }else{
-        // Création d'un tableau associatif contenant les données du client
-        $data = [
-            'nom' => $nom,
-            'prenom' => $prenom,
-            'telephone' => $telephone,
-            'email' => $emailRegister,
-            'password' => $passwordRegister
-        ];
-
-        // Création d'une instance de la classe Client
-        $client = new Client($data);
-
-        // Ajout du client à la base de données
-
-
-        // Création de variables de session pour le client
-        $_SESSION['client'] = $client;
-
-
-        // Redirection vers la page d'accueil du client connecté
-        ?>
-        <meta http-equiv="refresh" content="0;url=index_.php?page=accueilC.php">
-        <?php
-    }
-    */
 }
 ?>
 
 <!-- Formulaire d'inscription -->
-<form action="index_.php?page=inscription.php" method="post">
-    <div class="mb-3">
-        <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="nom" name="nom" required>
-    </div>
-    <div class="mb-3">
-        <label for="prenom" class="form-label">Prénom</label>
-        <input type="text" class="form-control" id="prenom" name="prenom" required>
-    </div>
-    <div class="mb-3">
-        <label for="telephone" class="form-label">Téléphone</label>
-        <input type="text" class="form-control" id="telephone" name="telephone" required>
-    </div>
+<form id="inscriptionForm" action="index_.php?page=inscription.php" method="post">
     <div class="mb-3">
         <label for="emailRegister" class="form-label">Email</label>
         <input type="email" class="form-control" id="emailRegister" name="emailRegister" required>
@@ -67,10 +30,24 @@ if(isset($_POST['submit_register'])) {
         <label for="passwordRegister" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" required>
     </div>
-    <button type="submit" class="btn btn-primary" name="submit_register">Créer un compte</button>
+    <!-- Bouton pour afficher les champs supplémentaires -->
+    <button type="button" class="btn btn-primary" id="showAdditionalFieldsBtn">Continuer</button>
+    <!-- Champs supplémentaires masqués par défaut -->
+    <div id="additionalFields" style="display: none;">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" required>
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" required>
+        </div>
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="telephone" name="telephone" required>
+        </div>
+        <button type="submit" class="btn btn-primary" name="submit_register">Créer un compte</button>
+    </div>
 </form>
 
-<!-- Bouton pour afficher le formulaire de connexion -->
-<div>
-    <a href="index_.php?page=connexion.php" class="btn btn-secondary">Se connecter</a>
-</div>
+<script src="admin/public/js/fonctions.js"></script>
