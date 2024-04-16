@@ -2,8 +2,7 @@
 <br>
 <br>
 
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
+<footer class="footer mt-auto py-3 bg-body-tertiary">    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h5>Liens rapides</h5>

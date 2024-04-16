@@ -42,12 +42,7 @@ if(isset($_POST['submit_login'])) {
                                 <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                                 <label for="floatingPassword">Mot de passe</label>
                             </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                <label class="form-check-label" for="rememberPasswordCheck">
-                                    Se souvenir du mot de passe
-                                </label>
-                            </div>
+
                             <div class="d-grid">
                                 <button class="btn btn-primary btn-login text-uppercase fw-bold" name="submit_login" type="submit">Se connecter</button>
                             </div>

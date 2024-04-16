@@ -2,3 +2,12 @@
     font-family: Arial, sans-serif;
     font-size: 28px;
 }
+
+.card-img-top {
+    max-width: 20%;
+    height: auto;
+}
+
+.container {
+    max-width: 100%;
+}
