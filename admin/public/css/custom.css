@@ -11,3 +11,11 @@
 .container {
     max-width: 100%;
 }
+
+.carousel .d-block {
+    max-height: 400px; /* Ajustez cette valeur en fonction de vos besoins */
+    max-width: 50%; /* Ajustez cette valeur en fonction de vos besoins */
+    width: auto;
+    height: auto;
+    margin: auto;
+}
