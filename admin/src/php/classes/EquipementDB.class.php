@@ -38,6 +38,18 @@ class EquipementDB extends Equipement
         return $equipementsArray;
     }
 
+    public function getAllEquipements()
+    {
+        $query = "SELECT * FROM equipement";
+        $resultSet = $this->_database->prepare($query);
+        $resultSet->execute();
+        $data = $resultSet->fetchAll();
+        $equipementsArray = array();
+        foreach ($data as $row) {
+            $equipementsArray[] = new Equipement($row);
+        }
+        return $equipementsArray;
+    }
     public function updateEquipement($id, $champ, $valeur)
     {
         $query = "select updateequipement(:id,:champ,:valeur)";

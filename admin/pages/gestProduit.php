@@ -3,10 +3,9 @@
 
 
 <?php
-require_once '../src/php/classes/EquipementDB.class.php';
 
 $equipements = new EquipementDB($cnx);
-$liste = $equipements->getEquipementsByNom();
+$liste = $equipements->getAllEquipements();
 //var_dump($liste);
 $nbr = count($liste);
 
