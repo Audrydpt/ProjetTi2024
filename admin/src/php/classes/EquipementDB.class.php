@@ -79,12 +79,12 @@ class EquipementDB extends Equipement
 
     public function addEquipement($nome, $descriptione, $tarife, $image, $stock, $id_categorie)
     {
-        $query = "select ajoutequipement(:nom, :descriptione, :tarif, :image, :stock, :id_categorie)";
+        $query = "select ajoutequipement(:nome, :descriptione, :tarife, :image, :stock, :id_categorie)";
         try {
             $res = $this->_database->prepare($query);
-            $res->bindValue(':nom', $nome);
+            $res->bindValue(':nome', $nome);
             $res->bindValue(':descriptione', $descriptione);
-            $res->bindValue(':tarif', $tarife);
+            $res->bindValue(':tarife', $tarife);
             $res->bindValue(':image', $image);
             $res->bindValue(':stock', $stock);
             $res->bindValue(':id_categorie', $id_categorie);

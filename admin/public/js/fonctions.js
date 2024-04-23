@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     //js pour inscrition
     $('#showAdditionalFieldsBtn').click(function () {
         var email = $('#emailRegister').val();
@@ -18,7 +17,7 @@ $(document).ready(function () {
     // Vérifie si la page actuelle est la page 'À propos'
     if (window.location.href.indexOf("a_propos") > -1) {
         $(".container").hide().each(function (index) {
-            $(this).delay(400 * index).fadeIn(2000);
+            $(this).delay(100 * index).fadeIn(1000);
         });
     }
 
