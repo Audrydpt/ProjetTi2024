@@ -1,5 +1,6 @@
 <main>
 
+
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
         <div class="col-md-6 p-lg-5 mx-auto my-5">
             <h1 class="display-3 fw-bold">Location Dupont</h1>
@@ -28,10 +29,10 @@
 
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="admin/public/images/stationPeinture.jpg" class="d-block w-100" alt="dia2">
+                <img src="admin/public/images/tailleHaie.jpg" class="d-block w-100" alt="dia2">
             </div>
             <div class="carousel-item">
-                <img src="admin/public/images/scieElec.jpg" class="d-block w-100" alt="dia3">
+                <img src="admin/public/images/soufleur.jpg" class="d-block w-100" alt="dia3">
 
             </div>
         </div>
@@ -44,7 +45,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+    <br><br><br>
 
     <div class="container marketing">
 

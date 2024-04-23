@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary container-xxl">
     <div class="container-fluid">
         <a class="navbar-brand">Espace client</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +11,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index_.php?page=categorie.php">Notre catalogue</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Louer équipement</a>
                 </li>
             </ul>
             <form class="d-flex me-auto" role="search">

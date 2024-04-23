@@ -9,17 +9,7 @@ class EquipementDB extends Equipement
         $this->_database = $connection;
     }
 
-    public function getEquipements()
-    {
-        $query = "SELECT * FROM equipement";
-        $resultSet = $this->_database->query($query);
-        $data = $resultSet->fetchAll();
-        $equipementsArray = array();
-        foreach ($data as $row) {
-            $equipementsArray[] = new Equipement($row);
-        }
-        return $equipementsArray;
-    }
+
 
     public function getEquipementsByCategorie($id_categorie)
     {
@@ -34,53 +24,67 @@ class EquipementDB extends Equipement
         }
         return $equipementsArray;
     }
-
-    public function getEquipement($id)
+    public function getEquipementsByNom($nome)
     {
-        $query = "SELECT * FROM equipement WHERE id_equipement = :id";
+        $query = "SELECT * FROM equipement WHERE nome = :nom";
         $resultSet = $this->_database->prepare($query);
-        $resultSet->bindValue(':id', $id, PDO::PARAM_INT);
+        $resultSet->bindValue(':nom', $nome, PDO::PARAM_STR);
         $resultSet->execute();
-        $data = $resultSet->fetch();
-        if ($data) {
-            return new Equipement($data);
-        } else {
-            return false;
+        $data = $resultSet->fetchAll();
+        $equipementsArray = array();
+        foreach ($data as $row) {
+            $equipementsArray[] = new Equipement($row);
         }
+        return $equipementsArray;
     }
 
-    public function addEquipement(Equipement $equipement)
+    public function updateEquipement($id, $champ, $valeur)
     {
-        $query = "INSERT INTO equipement (nom, description, tarif, image, stock, id_categorie) VALUES (:nom, :description, :tarif, :image, :stock, :id_categorie)";
-        $resultSet = $this->_database->prepare($query);
-        $resultSet->bindValue(':nom', $equipement->getNom(), PDO::PARAM_STR);
-        $resultSet->bindValue(':description', $equipement->getDescription(), PDO::PARAM_STR);
-        $resultSet->bindValue(':tarif', $equipement->getTarif(), PDO::PARAM_INT);
-        $resultSet->bindValue(':image', $equipement->getImage(), PDO::PARAM_STR);
-        $resultSet->bindValue(':stock', $equipement->getStock(), PDO::PARAM_INT);
-        $resultSet->bindValue(':id_categorie', $equipement->getIdCategorie(), PDO::PARAM_INT);
-        $resultSet->execute();
-    }
-
-    public function updateEquipement(Equipement $equipement)
-    {
-        $query = "UPDATE equipement SET nom = :nom, description = :description, tarif = :tarif, image = :image, stock = :stock, id_categorie = :id_categorie WHERE id_equipement = :id";
-        $resultSet = $this->_database->prepare($query);
-        $resultSet->bindValue(':nom', $equipement->getNom(), PDO::PARAM_STR);
-        $resultSet->bindValue(':description', $equipement->getDescription(), PDO::PARAM_STR);
-        $resultSet->bindValue(':tarif', $equipement->getTarif(), PDO::PARAM_INT);
-        $resultSet->bindValue(':image', $equipement->getImage(), PDO::PARAM_STR);
-        $resultSet->bindValue(':stock', $equipement->getStock(), PDO::PARAM_INT);
-        $resultSet->bindValue(':id_categorie', $equipement->getIdCategorie(), PDO::PARAM_INT);
-        $resultSet->bindValue(':id', $equipement->getIdEquipement(), PDO::PARAM_INT);
-        $resultSet->execute();
+        $query = "select updateequipement(:id,:champ,:valeur)";
+        try {
+            $res = $this->_database->prepare($query);
+            $res->bindValue(':id', $id);
+            $res->bindValue(':champ', $champ);
+            $res->bindValue(':valeur', $valeur);
+            $res->execute();
+            $data = $res->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+        }
     }
 
     public function deleteEquipement($id)
     {
-        $query = "DELETE FROM equipement WHERE id_equipement = :id";
-        $resultSet = $this->_database->prepare($query);
-        $resultSet->bindValue(':id', $id, PDO::PARAM_INT);
-        $resultSet->execute();
+        $query = "delete from equipement where id_equipement=$id";
+        try {
+            $res = $this->_database->prepare($query);
+            $res->execute();
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+        }
     }
+
+    public function addEquipement($nome, $descriptione, $tarife, $image, $stock, $id_categorie)
+    {
+        $query = "select ajoutequipement(:nom, :descriptione, :tarif, :image, :stock, :id_categorie)";
+        try {
+            $res = $this->_database->prepare($query);
+            $res->bindValue(':nom', $nome);
+            $res->bindValue(':descriptione', $descriptione);
+            $res->bindValue(':tarif', $tarife);
+            $res->bindValue(':image', $image);
+            $res->bindValue(':stock', $stock);
+            $res->bindValue(':id_categorie', $id_categorie);
+            $res->execute();
+            $data = $res->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            print "Echec " . $e->getMessage();
+        }
+    }
+
+
+
 }
+

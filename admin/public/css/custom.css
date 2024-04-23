@@ -13,8 +13,8 @@
 }
 
 .carousel .d-block {
-    max-height: 400px; /* Ajustez cette valeur en fonction de vos besoins */
-    max-width: 50%; /* Ajustez cette valeur en fonction de vos besoins */
+    max-height: 300px;
+    max-width: 40%;
     width: auto;
     height: auto;
     margin: auto;

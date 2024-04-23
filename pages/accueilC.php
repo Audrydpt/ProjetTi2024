@@ -7,3 +7,5 @@ if (!isset($_SESSION['client'])) {
 }
 
 print "<br>Page de client connecté<br>";
+
+// Afficher les informations du client
