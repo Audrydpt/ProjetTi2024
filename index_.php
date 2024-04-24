@@ -53,7 +53,7 @@ require './admin/src/php/utils/liste_includes.php';
 
         </div>
     </div>
-    <footer id="footer" class="w-100" data-bs-theme="dark">
+    <footer id="footer" class="w-100" data-bs-theme="dark" style="color: #fff">
         <?php
         if (file_exists('./admin/src/php/utils/footer.php')) {
             include './admin/src/php/utils/footer.php';

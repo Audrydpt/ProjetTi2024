@@ -24,11 +24,9 @@ $(document).ready(function () {
     //quand une balise contient des atttributs,
     //cette balise est un tableau
     $("td[id]").click(function () {
-        //trim : supprimer les blancs avant et après
         let valeur1 = $.trim($(this).text());
         let id = $(this).attr('id');
         let name = $(this).attr('name');
-        console.log(valeur1 + " id = " + id + " name = " + name);
         $(this).blur(function () {
             let valeur2 = $.trim($(this).text());
             if (valeur1 != valeur2) {
@@ -38,8 +36,16 @@ $(document).ready(function () {
                     dataType: 'json',
                     data: parametre,
                     url: './src/php/ajax/ajaxUpdateEquipement.php',
-                    success: function (data) {//data = retour du # php
-                        console.log(data);
+                    success: function (data) {
+                        if (data && data.error) {
+                            console.error('Error updating equipment:', data.error);
+                        } else {
+                            console.log('Equipment updated successfully');
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX error:', textStatus, ', Details:', errorThrown);
+                        console.error('Response:', jqXHR.responseText);
                     }
                 })
             }
@@ -61,8 +67,8 @@ $(document).ready(function () {
         let image = $('#image').val();
         let stock = $('#stock').val();
         let id_categorie = $('#id_categorie').val();
+        let param = 'nome=' + nom + '&descriptione=' + description + '&tarife=' + tarif + '&image=' + image + '&stock=' + stock + '&id_categorie=' + id_categorie;
 
-        let param = 'nom=' + nom + '&description=' + description + '&tarif=' + tarif + '&image=' + image + '&stock=' + stock + '&id_categorie=' + id_categorie;
         let retour = $.ajax({
             type: 'get',
             dataType: 'json',

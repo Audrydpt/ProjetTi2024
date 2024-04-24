@@ -68,9 +68,10 @@ class EquipementDB extends Equipement
 
     public function deleteEquipement($id)
     {
-        $query = "delete from equipement where id_equipement=$id";
+        $query = "delete from equipement where id_equipement= :id";
         try {
             $res = $this->_database->prepare($query);
+            $res->bindValue(':id', $id, PDO::PARAM_INT);
             $res->execute();
         } catch (PDOException $e) {
             print "Echec " . $e->getMessage();

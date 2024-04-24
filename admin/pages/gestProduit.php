@@ -35,8 +35,7 @@ else{
             ?>
             <tr>
                 <th><?= $liste[$i]->id_equipement;?></th>
-                <td contenteditable="true" id="<?= $liste[$i]->id_equipemnt;?>" name="nom"><?= $liste[$i]->nome;?></td>
-                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="description"><?= $liste[$i]->descriptione;?></td>
+                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="nom"><?= $liste[$i]->nome;?></td>                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="description"><?= $liste[$i]->descriptione;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="tarif"><?= $liste[$i]->tarife;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="image"><?= $liste[$i]->image;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="stock"><?= $liste[$i]->stock;?></td>
