@@ -15,7 +15,7 @@ class ClientDB
     {
         $query = "SELECT id_client FROM client WHERE emailc = :email";
         try {
-            $resultset = $this->_db->prepare($query);
+            $resultset = $this->_bd->prepare($query);
             $resultset->bindValue(':email', $email);
             $resultset->execute();
             $clientData = $resultset->fetch(PDO::FETCH_ASSOC);

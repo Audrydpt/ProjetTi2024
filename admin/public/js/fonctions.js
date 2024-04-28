@@ -175,7 +175,16 @@ $(document).ready(function () {
                     console.error('Error:', data.error);
                 } else {
                     console.log('Reservation added successfully');
-                    // You can add code here to update the UI after the reservation is added
+                    // Redirect to the confirmation page with the reservation details as URL parameters
+                    window.location.href = './pages/confirmation.php?' + $.param({
+                        dateDebut: dateDebut,
+                        dateFin: dateFin,
+                        emailClient: emailClient,
+                        nomEquipement: nomEquipement,
+                        quantite: quantite,
+                        modePaiement: modePaiement,
+                        prix: prix
+                    });
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {

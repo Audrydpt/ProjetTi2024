@@ -1,9 +1,8 @@
 <?php
-
-class LocationDB extends Location
+require 'Location.class.php';
+class LocationDB
 {
     private $_db;
-    private $_attributs = array();
 
     public function __construct($db)
     {
