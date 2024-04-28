@@ -1,12 +1,48 @@
 <?php
 
-class ClientDB extends Client
+require_once 'Client.class.php';
+
+class ClientDB
 {
     private $_bd;
 
     public function __construct($cnx)
     {
         $this->_bd = $cnx;
+    }
+
+    public function getClientIdByEmail($email)
+    {
+        $query = "SELECT id_client FROM client WHERE emailc = :email";
+        try {
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':email', $email);
+            $resultset->execute();
+            $clientData = $resultset->fetch(PDO::FETCH_ASSOC);
+            if ($clientData) {
+                return $clientData['id_client'];
+            } else {
+                throw new Exception("No client found with email: $email");
+            }
+        } catch (PDOException $e) {
+            print "Echec de la requête " . $e->getMessage();
+        }
+    }
+
+    public function getAllClients()
+    {
+        $query = "SELECT * FROM client";
+        try {
+            $resultset = $this->_bd->query($query);
+            $clients = $resultset->fetchAll();
+            $clientsArray = array();
+            foreach ($clients as $client) {
+                $clientsArray[] = new Client($client);
+            }
+            return $clientsArray;
+        } catch (PDOException $e) {
+            print "Echec de la requête " . $e->getMessage();
+        }
     }
 
     public function getClientByEmailAndPassword($email, $password)

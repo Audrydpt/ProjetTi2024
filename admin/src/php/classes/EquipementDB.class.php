@@ -1,6 +1,8 @@
 <?php
 
-class EquipementDB extends Equipement
+require_once 'Client.class.php';
+
+class EquipementDB
 {
     private $_database;
 
@@ -9,6 +11,23 @@ class EquipementDB extends Equipement
         $this->_database = $connection;
     }
 
+    public function getEquipementIdByName($name)
+    {
+        $query = "SELECT id_equipement FROM equipement WHERE nome = :name";
+        try {
+            $resultset = $this->_database->prepare($query);
+            $resultset->bindValue(':name', $name);
+            $resultset->execute();
+            $equipementData = $resultset->fetch(PDO::FETCH_ASSOC);
+            if ($equipementData) {
+                return $equipementData['id_equipement'];
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            print "Echec de la requête " . $e->getMessage();
+        }
+    }
 
 
     public function getEquipementsByCategorie($id_categorie)
@@ -68,7 +87,7 @@ class EquipementDB extends Equipement
 
     public function deleteEquipement($id)
     {
-        $query = "delete from equipement where id_equipement= :id";
+        $query = "select deleteequipement(:id)";
         try {
             $res = $this->_database->prepare($query);
             $res->bindValue(':id', $id, PDO::PARAM_INT);

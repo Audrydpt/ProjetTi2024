@@ -28,6 +28,12 @@ class Equipement
         $this->_attributs[$champ] = $valeur;
     }
 
+    public function getAttribut($name) {
+        if (array_key_exists($name, $this->_attributs)) {
+            return $this->_attributs[$name];
+        }
+    }
+
 
 }
 ?>

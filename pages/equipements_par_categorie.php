@@ -20,7 +20,7 @@ if (isset($_GET['id_categ'])) {
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $equipement->nome; ?></h5>
                     <p class="card-text"><?php echo $equipement->descriptione; ?></p>
-                    <p class="card-text"><strong>Tarif:</strong> <?php echo $equipement->tarife; ?> €</p>
+                    <p class="card-text"><strong>Tarif:</strong> <?php echo $equipement->tarife; ?> €/j</p>
                     <p class="card-text"><strong>Stock restant:</strong> <?php echo $equipement->stock; ?></p>
                 </div>
             </div>

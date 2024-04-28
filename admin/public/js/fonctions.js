@@ -38,14 +38,10 @@ $(document).ready(function () {
                     url: './src/php/ajax/ajaxUpdateEquipement.php',
                     success: function (data) {
                         if (data && data.error) {
-                            console.error('Error updating equipment:', data.error);
+                            console.error('pas ok :', data.error);
                         } else {
-                            console.log('Equipment updated successfully');
+                            console.log('ok');
                         }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.error('AJAX error:', textStatus, ', Details:', errorThrown);
-                        console.error('Response:', jqXHR.responseText);
                     }
                 })
             }
@@ -53,29 +49,34 @@ $(document).ready(function () {
     })
 
 
-    $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
+    $('#texte_bouton_submit').text("Ajouter");
 
     $('#reset').click(function () {
-        $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
+        $('#texte_bouton_submit').text("Ajouter");
     })
 
-    $('#texte_bouton_submit').click(function (e) { //e = formulaire
-        e.preventDefault(); //empêcher l'attribut action de form
-        let nom = $('#nom').val();
-        let description = $('#description').val();
-        let tarif = $('#tarif').val();
+    $('#texte_bouton_submit').click(function (e) {
+        e.preventDefault();
+        let nome = $('#nom').val();
+        let descriptione = $('#description').val();
+        let tarife = $('#tarif').val();
         let image = $('#image').val();
         let stock = $('#stock').val();
         let id_categorie = $('#id_categorie').val();
-        let param = 'nome=' + nom + '&descriptione=' + description + '&tarife=' + tarif + '&image=' + image + '&stock=' + stock + '&id_categorie=' + id_categorie;
+        let param = 'nome=' + nome + '&descriptione=' + descriptione + '&tarife=' + tarife + '&image=' + image + '&stock=' + stock + '&id_categorie=' + id_categorie;
 
         let retour = $.ajax({
             type: 'get',
             dataType: 'json',
             data: param,
             url: './src/php/ajax/ajaxAddEquipement.php',
-            success: function (data) {//data = retour du # php
-                console.log(data);
+            success: function (data) {
+                if (data && data.error) {
+                    //popup erreur
+                    alert(data.error);
+                } else {
+                    console.log(data);
+                }
             }
         })
     })
@@ -96,10 +97,98 @@ $(document).ready(function () {
                 $('#image').val(data[0].image);
                 $('#stock').val(data[0].stock);
                 $('#id_categorie').val(data[0].id_categorie);
-                $('#texte_bouton_submit').text("Modifier");
             }
         })
     })
+
+
+        // Ajoutez un écouteur d'événements click à tous les éléments de la colonne "Supprimer"
+        $('.delete-equipement').click(function () {
+            // Récupérez l'ID de l'équipement à supprimer
+            var id = $(this).data('id');
+
+            // Envoyez une requête AJAX pour supprimer l'équipement
+            $.ajax({
+                url: './src/php/ajax/ajaxDeleteEquipement.php',
+                type: 'GET',
+                data: { id: id },
+                dataType: 'json',
+                success: function (data) {
+                    if (data && data.error) {
+                        console.error('pas ok :', data.error);
+                    } else {
+                        console.log('ok');
+                        // Supprimez la ligne de l'équipement de la table
+                        $('#equipement-' + id).remove();
+                        location.reload();
+                    }
+                }
+            });
+        });
+
+
+        // Add event listener to the quantity input field and the equipment select field
+        $('#quantite, #nomEquipement').change(function () {
+            // Get the selected equipment and its unit price
+            var selectedEquipement = $('#nomEquipement').val();
+            var unitPrice = unitPrices[selectedEquipement];
+
+            // Get the entered quantity
+            var quantity = $('#quantite').val();
+
+            // Calculate the total price
+            var totalPrice = unitPrice * quantity;
+
+            // Display the total price in the total price input field
+            $('#prix').val(totalPrice.toFixed(2));
+        });
+
+
+
+
+    $('#reservationForm').on('submit', function(e) {
+        e.preventDefault();
+
+        var dateDebut = $('#dateDebut').val();
+        var dateFin = $('#dateFin').val();
+        var emailClient = $('#emailClient').val();
+        var nomEquipement = $('#nomEquipement').val();
+        var quantite = $('#quantite').val();
+        var modePaiement = $('#modePaiement').val();
+        var prix = $('#prix').val();
+
+        $.ajax({
+            url: './admin/src/php/ajax/ajaxLocation.php',
+            type: 'GET',
+            data: {
+                dateDebut: dateDebut,
+                dateFin: dateFin,
+                emailClient: emailClient,
+                nomEquipement: nomEquipement,
+                quantite: quantite,
+                modePaiement: modePaiement,
+                prix: prix
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data && data.error) {
+                    console.error('Error:', data.error);
+                } else {
+                    console.log('Reservation added successfully');
+                    // You can add code here to update the UI after the reservation is added
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('AJAX error:', textStatus, errorThrown);
+                console.log('Response:', jqXHR.responseText);  // Log the exact response
+            }
+        });
+    });
+
+
+
+
+
 
 
 });

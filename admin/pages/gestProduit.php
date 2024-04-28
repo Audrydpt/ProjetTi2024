@@ -21,7 +21,7 @@ else{
             <th scope="col">Id</th>
             <th scope="col">Nom</th>
             <th scope="col">Description</th>
-            <th scope="col">Tarif</th>
+            <th scope="col">Tarif (€/j)</th>
             <th scope="col">Image</th>
             <th scope="col">Stock</th>
             <th scope="col">Id_categorie</th>
@@ -35,12 +35,13 @@ else{
             ?>
             <tr>
                 <th><?= $liste[$i]->id_equipement;?></th>
-                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="nom"><?= $liste[$i]->nome;?></td>                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="description"><?= $liste[$i]->descriptione;?></td>
-                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="tarif"><?= $liste[$i]->tarife;?></td>
+                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="nome"><?= $liste[$i]->nome;?></td>
+                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="descriptione"><?= $liste[$i]->descriptione;?></td>
+                <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="tarife"><?= $liste[$i]->tarife;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="image"><?= $liste[$i]->image;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="stock"><?= $liste[$i]->stock;?></td>
                 <td contenteditable="true" id="<?= $liste[$i]->id_equipement;?>" name="id_categorie"><?= $liste[$i]->id_categorie;?></td>
-                <td contenteditable="true"><img src="public/images/delete.jpg" alt="Effacer" ></td>
+                <td data-id="<?= $liste[$i]->id_equipement;?>" class="delete-equipement"><img src="public/images/delete.jpg" alt="Effacer" ></td>
             </tr>
             <?php
         }
