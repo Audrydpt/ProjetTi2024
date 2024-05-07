@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Equipement.class.php';
 require_once 'Client.class.php';
 
 class EquipementDB
@@ -11,6 +11,23 @@ class EquipementDB
         $this->_database = $connection;
     }
 
+    public function getEquipementById($id)
+    {
+        $query = "SELECT * FROM equipement WHERE id_equipement = :id";
+        try {
+            $resultset = $this->_database->prepare($query);
+            $resultset->bindValue(':id', $id);
+            $resultset->execute();
+            $equipementData = $resultset->fetch(PDO::FETCH_ASSOC);
+            if ($equipementData) {
+                return new Equipement($equipementData);
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            print "Echec de la requête " . $e->getMessage();
+        }
+    }
     public function getEquipementIdByName($name)
     {
         $query = "SELECT id_equipement FROM equipement WHERE nome = :name";

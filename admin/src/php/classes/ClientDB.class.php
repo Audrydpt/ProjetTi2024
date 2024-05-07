@@ -22,7 +22,8 @@ class ClientDB
             if ($clientData) {
                 return $clientData['id_client'];
             } else {
-                throw new Exception("No client found with email: $email");
+                throw new Exception("pas trouvé avec : $email");
+
             }
         } catch (PDOException $e) {
             print "Echec de la requête " . $e->getMessage();

@@ -24,12 +24,19 @@ if ($dateDebut && $dateFin && $emailClient && $nomEquipement && $quantite && $mo
     $idEquipement = $equipementDB->getEquipementIdByName($nomEquipement);
 
     if ($idClient && $idEquipement) {
-        $result = $locationDB->addLocation($dateDebut, $dateFin, $prix, $modePaiement, $quantite, $idEquipement, $idClient);
-        echo json_encode($result);
+        // Check if the equipment's stock is sufficient
+        $equipement = $equipementDB->getEquipementById($idEquipement);
+        if ($equipement->getAttribut('stock') < $quantite) {
+            echo json_encode(['error' => 'Insufficient stock']);
+        } else {
+            $result = $locationDB->addLocation($dateDebut, $dateFin, $prix, $modePaiement, $quantite, $idEquipement, $idClient);
+            echo json_encode($result);
+        }
     } else {
         echo json_encode(['error' => 'Client or equipment not found']);
     }
 } else {
     echo json_encode(['error' => 'Missing parameters']);
+
 }
 ?>
