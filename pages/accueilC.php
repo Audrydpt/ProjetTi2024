@@ -12,7 +12,7 @@ if (!isset($_SESSION['client'])) {
         <h1 class="display-3 fw-bold">Location Dupont</h1>
         <h3 class="fw-normal text-muted mb-3">Réserver dès maintenant !</h3>
         <div class="d-flex gap-3 justify-content-center lead fw-normal">
-            <a class="icon-link" href="index_.php?page=reserver.php">Résever</a>
+            <a class="icon-link" href="index_.php?page=reserver.php">Réserver</a>
         </div>
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
