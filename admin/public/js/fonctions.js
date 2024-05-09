@@ -172,6 +172,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function(data) {
                 if (data && data.error) {
+                    alert(data.error);
                     console.error('Error:', data.error);
                 } else {
                     console.log('Reservation added successfully');
