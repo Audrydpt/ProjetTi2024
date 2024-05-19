@@ -1,5 +1,4 @@
 <?php
-require 'Location.class.php';
 
 class LocationDB
 {

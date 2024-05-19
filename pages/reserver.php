@@ -1,8 +1,4 @@
 <?php
-require_once 'admin/src/php/classes/LocationDB.class.php';
-require_once 'admin/src/php/db/dbPgConnect.php';
-require_once 'admin/src/php/classes/Connexion.class.php';
-require_once 'admin/src/php/classes/ClientDB.class.php';
 
 
 $EquipementDB = new EquipementDB($cnx);

@@ -1,5 +1,4 @@
 <?php
-require_once 'admin/src/php/classes/EquipementDB.class.php';
 
 // Vérifier si l'identifiant de la catégorie est passé en paramètre
 if (isset($_GET['id_categ'])) {

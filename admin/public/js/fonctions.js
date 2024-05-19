@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //js pour inscrition
+
     $('#showAdditionalFieldsBtn').click(function () {
         var email = $('#emailRegister').val();
 
@@ -14,15 +14,14 @@ $(document).ready(function () {
     });
 
 
-    // Vérifie si la page actuelle est la page 'À propos'
+
     if (window.location.href.indexOf("a_propos") > -1) {
         $(".container").hide().each(function (index) {
             $(this).delay(100 * index).fadeIn(1000);
         });
     }
 
-    //quand une balise contient des atttributs,
-    //cette balise est un tableau
+
     $("td[id]").click(function () {
         let valeur1 = $.trim($(this).text());
         let id = $(this).attr('id');
@@ -81,33 +80,11 @@ $(document).ready(function () {
         })
     })
 
-    $('#email').blur(function () {
-        let nom = $('#nom').val();
-        console.log("nom : " + nom);
-        let parametre = 'nom=' + nom;
-        let retour = $.ajax({
-            type: 'get',
-            dataType: 'json',
-            data: parametre,
-            url: './src/php/ajax/ajaxSearchEquipement.php',
-            success: function (data) {//data = retour du # php
-                console.log(data);
-                $('#description').val(data[0].description);
-                $('#tarif').val(data[0].tarif);
-                $('#image').val(data[0].image);
-                $('#stock').val(data[0].stock);
-                $('#id_categorie').val(data[0].id_categorie);
-            }
-        })
-    })
 
 
-        // Ajoutez un écouteur d'événements click à tous les éléments de la colonne "Supprimer"
         $('.delete-equipement').click(function () {
-            // Récupérez l'ID de l'équipement à supprimer
             var id = $(this).data('id');
 
-            // Envoyez une requête AJAX pour supprimer l'équipement
             $.ajax({
                 url: './src/php/ajax/ajaxDeleteEquipement.php',
                 type: 'GET',
@@ -118,7 +95,6 @@ $(document).ready(function () {
                         console.error('pas ok :', data.error);
                     } else {
                         console.log('ok');
-                        // Supprimez la ligne de l'équipement de la table
                         $('#equipement-' + id).remove();
                         location.reload();
                     }
@@ -127,19 +103,14 @@ $(document).ready(function () {
         });
 
 
-        // Add event listener to the quantity input field and the equipment select field
         $('#quantite, #nomEquipement').change(function () {
-            // Get the selected equipment and its unit price
             var selectedEquipement = $('#nomEquipement').val();
             var unitPrice = unitPrices[selectedEquipement];
 
-            // Get the entered quantity
             var quantity = $('#quantite').val();
 
-            // Calculate the total price
             var totalPrice = unitPrice * quantity;
 
-            // Display the total price in the total price input field
             $('#prix').val(totalPrice.toFixed(2));
         });
 
@@ -176,7 +147,6 @@ $(document).ready(function () {
                     console.error('Error:', data.error);
                 } else {
                     console.log('Reservation added successfully');
-                    // Redirect to the confirmation page with the reservation details as URL parameters
                     window.location.href = './pages/confirmation.php?' + $.param({
                         dateDebut: dateDebut,
                         dateFin: dateFin,
@@ -189,11 +159,15 @@ $(document).ready(function () {
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
+                alert('Oups.. Une erreur s\'est produite. Veuillez réessayer');
+
                 console.error('AJAX error:', textStatus, errorThrown);
-                console.log('Response:', jqXHR.responseText);  // Log the exact response
+                console.log('Response:', jqXHR.responseText);
             }
         });
     });
+
+
 
 
 

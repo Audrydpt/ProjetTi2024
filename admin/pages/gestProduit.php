@@ -1,3 +1,6 @@
+<?php
+require 'src/php/utils/verifier_connexion.php';
+?>
 <h2>Gestion des produits</h2>
 <a href="index_.php?page=ajoutEquipement.php">Nouveau produit</a><br>
 

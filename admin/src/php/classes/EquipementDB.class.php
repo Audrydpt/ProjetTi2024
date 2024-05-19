@@ -62,7 +62,7 @@ class EquipementDB
     }
     public function getEquipementsByNom($nome)
     {
-        $query = "SELECT * FROM equipement WHERE nome = :nom";
+        $query = "SELECT * FROM equipement WHERE nome =:nom";
         $resultSet = $this->_database->prepare($query);
         $resultSet->bindValue(':nom', $nome, PDO::PARAM_STR);
         $resultSet->execute();
@@ -73,6 +73,7 @@ class EquipementDB
         }
         return $equipementsArray;
     }
+
 
     public function getAllEquipements()
     {

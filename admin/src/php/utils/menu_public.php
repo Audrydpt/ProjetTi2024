@@ -13,10 +13,7 @@
                     <a class="nav-link" href="index_.php?page=categorie.php">Notre catalogue</a>
                 </li>
             </ul>
-            <form class="d-flex me-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Rechercher</button>
-            </form>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="btn btn-outline-primary rounded-circle" href="index_.php?page=connexion.php">C</a>

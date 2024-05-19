@@ -1,6 +1,5 @@
 <?php
-// Inclure la classe CategorieDB
-require'admin/src/php/classes/CategorieDB.class.php';
+
 
 // Créer une instance de la classe CategorieDB
 $categorieDB = new CategorieDB($cnx);
