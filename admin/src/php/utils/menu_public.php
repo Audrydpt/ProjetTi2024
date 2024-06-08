@@ -13,7 +13,6 @@
                     <a class="nav-link" href="index_.php?page=categorie.php">Notre catalogue</a>
                 </li>
             </ul>
-
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="btn btn-outline-primary rounded-circle" href="index_.php?page=connexion.php">C</a>

@@ -20,7 +20,7 @@
             <div class="carousel-item active" data-bs-interval="10000">
                 <div class="carousel-img">
                     <img src="admin/public/images/tronco.jpg" class="d-block w-100" alt="Tronçonneuse">
-                    <div class="separator"></div> <!-- Ligne de séparation -->
+                    <div class="separator"></div>
                 </div>
                 <div class="carousel-caption d-md-block">
                     <h5 class="text-center">Tronçonneuse</h5>
@@ -30,7 +30,7 @@
             <div class="carousel-item" data-bs-interval="2000">
                 <div class="carousel-img">
                     <img src="admin/public/images/tailleHaie.jpg" class="d-block w-100" alt="Taille-haie">
-                    <div class="separator"></div> <!-- Ligne de séparation -->
+                    <div class="separator"></div>
                 </div>
                 <div class="carousel-caption d-md-block">
                     <h5 class="text-center">Taille-haie</h5>
@@ -40,7 +40,7 @@
             <div class="carousel-item">
                 <div class="carousel-img">
                     <img src="admin/public/images/soufleur.jpg" class="d-block w-100" alt="Souffleur">
-                    <div class="separator"></div> <!-- Ligne de séparation -->
+                    <div class="separator"></div>
                 </div>
                 <div class="carousel-caption d-md-block">
                     <h5 class="text-center">Souffleur</h5>
