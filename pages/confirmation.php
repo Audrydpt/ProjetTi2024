@@ -7,10 +7,11 @@ $quantite = $_GET['quantite'];
 $modePaiement = $_GET['modePaiement'];
 $prix = $_GET['prix'];
 ?>
-<meta http-equiv="refresh" content="5;url=../index_.php?page=accueil.php" />
-<div class="container">
+<meta http-equiv="refresh" content="5;url=index_.php?page=accueil.php" />
+
+<div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6 center-card">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <h1>Confirmation de réservation</h1>
@@ -32,17 +33,3 @@ $prix = $_GET['prix'];
     </div>
 </div>
 
-<style>
-    .center-card {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .card {
-        border: 1px solid #000;
-        padding: 20px; /* Add space inside the border */
-        border-radius: 10px; /* Round the corners */
-    }
-</style>

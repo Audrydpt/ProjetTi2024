@@ -16,7 +16,7 @@ foreach ($equipements as $equipement) {
 <script>
     var unitPrices = <?php echo json_encode($unitPrices); ?>;
 </script>
-<!-- Formulaire de réservation -->
+
 <form id="reservationForm" action="index_.php?page=reserver.php" method="post">
     <div class="mb-3">
         <label for="dateDebut" class="form-label">Date de début</label>

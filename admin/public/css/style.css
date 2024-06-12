@@ -10,21 +10,22 @@
     justify-content: center;
     align-items: center;
 }
-/* Style pour la légende du carrousel */
+
 .carousel-caption {
     padding: 20px;
-    color: white; /* Texte blanc */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ombre douce */
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Style pour l'image du carrousel */
 .carousel-img {
+    height: 400px;
+    object-fit: contain;
     position: relative;
     padding-bottom: 14.25%;
 }
 
-/* Style pour la ligne de séparation */
+
 .separator {
     position: absolute;
     bottom: 0;
@@ -32,9 +33,11 @@
     border-bottom: 1px solid white;
 }
 
-/* Style pour le texte de la légende */
+
 .carousel-caption p {
-    margin-bottom: 0; /* Supprime l'espacement sous le paragraphe */
+    margin-bottom: 0;
 }
+
+
 
 

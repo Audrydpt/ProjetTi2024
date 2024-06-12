@@ -86,48 +86,36 @@
 
         <hr class="featurette-divider">
 
-        <!-- Commentaire client 1 -->
         <div class="row featurette">
             <div class="col-md-7">
-                <!-- Titre du commentaire -->
                 <h2 class="featurette-heading fw-normal lh-1">Un service impeccable<span class="text-body-secondary"> - Jeanne D.</span></h2>
-                <!-- Texte du commentaire -->
                 <p class="lead">J'ai loué du matériel de bricolage chez Location Dupont et j'ai été impressionné par la qualité du service. Le personnel était très compétent et m'a aidé à choisir les outils parfaits pour mon projet. Je recommande vivement!</p>
             </div>
             <div class="col-md-5">
-                <!-- Image -->
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="admin/public/images/clientContent.jpg" alt="Client satisfait">
             </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <!-- Commentaire client 2 -->
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <!-- Titre du commentaire -->
                 <h2 class="featurette-heading fw-normal lh-1">Excellent matériel de jardinage<span class="text-body-secondary"> - Pierre L.</span></h2>
-                <!-- Texte du commentaire -->
                 <p class="lead">J'ai loué une tondeuse chez Location Dupont pour entretenir mon jardin, et je n'ai pas été déçu. La tondeuse était en parfait état de fonctionnement et le processus de location était simple et rapide. Je reviendrai certainement pour mes prochains besoins en matériel de jardinage.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <!-- Image -->
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="admin/public/images/imageClient2.jpg" alt="Client satisfait">
             </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <!-- Commentaire client 3 -->
         <div class="row featurette">
             <div class="col-md-7">
-                <!-- Titre du commentaire -->
                 <h2 class="featurette-heading fw-normal lh-1">Personnel compétent et aimable<span class="text-body-secondary"> - Martin G.</span></h2>
-                <!-- Texte du commentaire -->
                 <p class="lead">L'équipe de Location Dupont est vraiment à l'écoute des besoins de ses clients. Ils m'ont aidé à trouver l'outil parfait pour mon projet et m'ont donné des conseils utiles pour son utilisation. Je suis très satisfait de leur service!</p>
             </div>
             <div class="col-md-5">
-                <!-- Image -->
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="admin/public/images/imagePerso1.jpg" alt="Client satisfait">
             </div>
         </div>

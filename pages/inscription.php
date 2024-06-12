@@ -5,7 +5,6 @@ $clientDB = new ClientDB($cnx);
 if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
     extract($_POST, EXTR_OVERWRITE);
 
-    // Le client n'existe pas, afficher le reste du formulaire
     if (!empty($nom) && !empty($prenom) && !empty($telephone) && !empty($passwordRegister)) {
         $code = uniqid();
         $clientDB->addClient($_POST);
@@ -15,7 +14,6 @@ if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
 }
 ?>
 
-<!-- Formulaire d'inscription -->
 <form id="inscriptionForm" action="index_.php?page=inscription.php" method="post">
     <div class="mb-3">
         <label for="emailRegister" class="form-label">Email</label>
@@ -25,9 +23,7 @@ if (isset($_POST['emailRegister'], $_POST['passwordRegister'])) {
         <label for="passwordRegister" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="passwordRegister" name="passwordRegister" required>
     </div>
-    <!-- Bouton pour afficher les champs supplémentaires -->
     <button type="button" class="btn btn-primary" id="showAdditionalFieldsBtn">Continuer</button>
-    <!-- Champs supplémentaires masqués par défaut -->
     <div id="additionalFields" style="display: none;">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>

@@ -1,10 +1,8 @@
 <?php
 
 
-// Créer une instance de la classe CategorieDB
 $categorieDB = new CategorieDB($cnx);
 
-// Récupérer toutes les catégories
 $categories = $categorieDB->getAllCategories();
 ?>
 

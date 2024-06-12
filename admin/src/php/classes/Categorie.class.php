@@ -19,7 +19,6 @@ class Categorie
         }
     }
 
-    // Getters et setters
     public function getIdCateg()
     {
         return $this->id_categ;

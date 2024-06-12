@@ -6,7 +6,7 @@
             <div class="col-md-4">
                 <h5>Liens rapides</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Accueil</a></li>
+                    <li><a href="index_.php?page=accueil.php">Accueil</a></li>
                     <li><a href="index_.php?page=categorie.php">Notre catalogue</a></li>
                     <li><a href="index_.php?page=a_propos.php">A propos</a></li>
                 </ul>

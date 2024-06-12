@@ -14,12 +14,31 @@ $(document).ready(function () {
     });
 
 
-
-    if (window.location.href.indexOf("a_propos") > -1) {
-        $(".container").hide().each(function (index) {
-            $(this).delay(100 * index).fadeIn(1000);
+    $("#search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".equipement-title").filter(function() {
+            $(this).closest('.card').toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
-    }
+    });
+
+
+
+    const containers = document.querySelectorAll('.fade-in-element');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 //declencheur (temps)
+    });
+
+    containers.forEach(container => {
+        observer.observe(container);
+    });
 
 
     $("td[id]").click(function () {
@@ -147,7 +166,7 @@ $(document).ready(function () {
                     console.error('Error:', data.error);
                 } else {
                     console.log('Reservation added successfully');
-                    window.location.href = './pages/confirmation.php?' + $.param({
+                    window.location.href = './index_.php?page=confirmation.php&' + $.param({
                         dateDebut: dateDebut,
                         dateFin: dateFin,
                         emailClient: emailClient,

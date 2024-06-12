@@ -10,8 +10,12 @@
                     <a class="nav-link active" aria-current="page" href="index_.php?page=accueil.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index_.php?page=categorie.php">Notre catalogue</a>
+                    <a class="nav-link" href="index_.php?page=tous_equipements.php">Notre catalogue</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index_.php?page=categorie.php">Nos catégories</a>
+                </li>
+
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">

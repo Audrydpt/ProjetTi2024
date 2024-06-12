@@ -1,16 +1,13 @@
 <div class="search-container">
     <input type="text" id="search" placeholder="Rechercher un équipement...">
 </div>
-<?php
-if (isset($_GET['id_categ'])) {
-    $id_categ = $_GET['id_categ'];
-
+<div class="row">
+    <?php
     $equipementDB = new EquipementDB($cnx);
 
-    $equipements = $equipementDB->getEquipementsByCategorie($id_categ);
+    $equipements = $equipementDB->getAllEquipements();
 
     if ($equipements) {
-        echo '<div class="row d-flex justify-content-center">'; // Ajout des classes d-flex et justify-content-center
         foreach ($equipements as $equipement) {
             ?>
             <div class="col-md-4">
@@ -26,12 +23,8 @@ if (isset($_GET['id_categ'])) {
             </div>
             <?php
         }
-        echo '</div>';
     } else {
-        echo "Aucun équipement trouvé pour cette catégorie.";
+        echo "Aucun équipement trouvé.";
     }
-} else {
-    header('Location: page404.php');
-    exit();
-}
-?>
+    ?>
+</div>

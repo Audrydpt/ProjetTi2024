@@ -1,31 +1,23 @@
 <?php
 if(isset($_POST['submit_login'])) {
-    // Extraction des données du formulaire
     extract($_POST, EXTR_OVERWRITE);
 
-    // Création d'une instance de la classe ClientDB pour gérer les clients
     $clientDB = new ClientDB($cnx);
 
-    // Récupération des informations du client à partir de la base de données
     $client = $clientDB->getClientByEmailAndPassword($email, $password);
 
-    // Vérification de l'existence du client
     if($client){
-        // Création de variables de session pour le client
         $_SESSION['client'] = $client;
 
-        // Redirection vers la page d'accueil du client connecte
         ?>
         <meta http-equiv="refresh" content="0;url=index_.php?page=accueilC.php">
         <?php
     }else{
-        // Affichage d'un message d'erreur si les informations de connexion sont incorrectes
         print "<br>Identifiants incorrects<br>";
     }
 }
 ?>
 
-<!-- Formulaire de connexion pour les clients -->
 <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
     <div class="container">
         <div class="row">
@@ -54,7 +46,6 @@ if(isset($_POST['submit_login'])) {
     </div>
 </form>
 
-<!-- Option pour créer un compte -->
 <div class="text-center">
     <p>Vous n'avez pas de compte ? <a href="index_.php?page=inscription.php">Créer un compte</a></p>
 </div>
